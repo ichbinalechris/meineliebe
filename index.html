@@ -5,28 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Um Mar de Amor para a Dri</title>
     <style>
-  /* --- CONFIGURAÇÕES DO CORPO (Ajustado para Centralizar) --- */
+        /* --- CONFIGURAÇÕES GERAIS --- */
         body {
             margin: 0;
             padding: 0;
-            /* Esses 3 comandos abaixo garantem a centralização total */
-            display: center;
-            justify-content: center; /* Centraliza horizontalmente */
-            align-items: center;     /* Centraliza verticalmente */
-            
-            min-height: 100vh; /* Garante que o corpo tenha a altura de toda a tela */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
             color: white;
-            text-align: center; /* Garante que os textos dentro do container também centralizem */
+            text-align: center;
 
-            /* --- IMAGEM DE FUNDO --- */
-            background-image: url('mar-fundo.jpg'); 
+            /* --- IMAGEM DE FUNDO REAL --- */
+            background-image: url('mar-fundo.jpg'); /* Verifique se o nome do arquivo está igual */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            background-attachment: fixed; /* Mantém o fundo fixo ao rolar */
         }
+
         /* --- CONTAINER COM EFEITO VIDRO FOSCO --- */
         .container {
             position: relative;
@@ -101,4 +100,33 @@
 
     <div class="container">
         <h1>Para a Dri, meu Xodozinho</h1>
-        <p class="instrucao">Dri, clique
+        <p class="instrucao">Dri, clique na tartaruga para ver uma mensagem especial...</p>
+
+        <div class="area-tartarugas">
+            <img 
+                id="tartaruga-click" 
+                src="tartaruga.gif" 
+                alt="Tartaruga nadando" 
+                onclick="mostrarMensagem()"
+            >
+        </div>
+
+        <div id="mensagem-surpresa">
+            <p>Você é um doce <strong>Xodozinho</strong>, e eu <strong>AMO amar você</strong>. <br>Obrigada por ser minha namorada.</p>
+        </div>
+    </div>
+
+    <script>
+        function mostrarMensagem() {
+            const msg = document.getElementById('mensagem-surpresa');
+            msg.style.display = 'block';
+            
+            // Faz um scroll suave se a mensagem for longa
+            setTimeout(() => {
+                msg.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    </script>
+
+</body>
+</html>
