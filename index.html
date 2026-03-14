@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Um Mar de Amor para a Dri</title>
     <style>
-        /* --- CONFIGURAÇÕES GERAIS --- */
+  /* --- CONFIGURAÇÕES DO CORPO (Ajustado para Centralizar) --- */
         body {
             margin: 0;
             padding: 0;
+            /* Esses 3 comandos abaixo garantem a centralização total */
             display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center;     /* Centraliza verticalmente */
+            
+            min-height: 100vh; /* Garante que o corpo tenha a altura de toda a tela */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
             color: white;
-            text-align: center;
+            text-align: center; /* Garante que os textos dentro do container também centralizem */
 
-            /* --- IMAGEM DE FUNDO REAL --- */
-            background-image: url('mar-fundo.jpg'); /* Verifique se o nome do arquivo está igual */
+            /* --- IMAGEM DE FUNDO --- */
+            background-image: url('mar-fundo.jpg'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: fixed; /* Mantém o fundo fixo ao rolar */
+            background-attachment: fixed;
         }
-
         /* --- CONTAINER COM EFEITO VIDRO FOSCO --- */
         .container {
             position: relative;
