@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um Mar de Amor para a Dri</title>
+    <style>
+        /* --- ESTILOS CSS (A "Mágica" Visual) --- */
+
+        /* Define o fundo como um mar azul degradê e centraliza o conteúdo */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Um degradê suave para simular a profundidade do mar */
+            background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden; /* Impede barras de rolagem para manter a cena clean */
+            color: white;
+            text-align: center;
+        }
+
+        /* Container principal para organizar os elementos */
+        .container {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        /* Título e orientações para a Dri */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        p.instrucao {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* --- DESENHANDO AS TARTARUGAS COM CSS --- */
+
+        /* Container para as tartarugas nadarem */
+        .area-tartarugas {
+            position: relative;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo base de cada tartaruga */
+        .tartaruga {
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            background-color: #2e8b57; /* Verde da tartaruga */
+            border-radius: 50% 50% 40% 40%; /* Formato do casco */
+            cursor: pointer; /* Muda o cursor para indicar que é clicável */
+            transition: transform 0.3s ease; /* Efeito suave ao passar o mouse */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        /* Efeito de "levitar" ao passar o mouse na tartaruga */
+        .tartaruga:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        /* Adicionando "nadadeiras" com pseudo-elementos */
+        .tartaruga::before, .tartaruga::after {
+            content: '';
+            position: absolute;
+            background-color: #2e8b57;
+            border-radius: 50%;
+        }
+
+        /* Nadadeiras frontais */
+        .tartaruga::before {
+            width: 20px;
+            height: 15px;
+            top: 50%;
+            left: -10px;
+            transform: translateY(-50%);
+        }
+
+        /* Nadadeiras traseiras */
+        .tartaruga::after {
+            width: 15px;
+            height: 10px;
+            bottom: -5px;
+            right: 10px;
+        }
+
+        /* Posicionando 3 tartarugas em locais diferentes */
+        .tartaruga-1 { top: 20%; left: 10%; }
+        .tartaruga-2 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .tartaruga-3 { bottom: 20%; right: 10%; }
+
+
+        /* --- ESTILO DA MENSAGEM SURPRESA --- */
+
+        /* A mensagem começa escondida */
+        #mensagem-surpresa {
+            display: none; /* Escondido por padrão */
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+            color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            font-size: 1.3rem;
+            line-height: 1.6;
+            animation: apareceSuave 0.5s ease; /* Animação para aparecer */
+        }
+
+        /* Destacando palavras chave na mensagem */
+        #mensagem-surpresa strong {
+            color: #d63384; /* Um tom de rosa/vermelho carinhoso */
+        }
+
+        /* Animação simples de fade-in */
+        @keyframes apareceSuave {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Para a Dri, meu Xodozinho</h1>
+        <p class="instrucao">Dri, meu amor, o mar é calmo e lindo, assim como você. Clique em uma das tartarugas marinhas para descobrir um segredo...</p>
+
+        <div class="area-tartarugas">
+            <div class="tartaruga tartaruga-1" onclick="mostrarMensagem()"></div>
+            <div class="tartaruga tartaruga-2" onclick="mostrarMensagem()"></div>
+            <div class="tartaruga tartaruga-3" onclick="mostrarMensagem()"></div>
+        </div>
+
+        <div id="mensagem-surpresa">
+            <p>Você é um doce <strong>Xodozinho</strong>, e eu <strong>AMO amar você</strong>. <br>Obrigada por ser minha namorada.</p>
+        </div>
+    </div>
+
+    <script>
+        // Esta função é chamada quando qualquer tartaruga é clicada
+        function mostrarMensagem() {
+            // Seleciona o elemento da mensagem pelo ID
+            const mensagem = document.getElementById('mensagem-surpresa');
+            
+            // Muda o estilo de exibição de 'none' (escondido) para 'block' (visível)
+            mensagem.style.display = 'block';
+
+            // Opcional: Rolar a página suavemente para a mensagem
+            mensagem.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
