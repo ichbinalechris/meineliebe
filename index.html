@@ -44,62 +44,30 @@
             font-weight: 300;
         }
 
-        /* --- DESENHANDO AS TARTARUGAS COM CSS --- */
-
-        /* Container para as tartarugas nadarem */
+        /* --- POSICIONANDO O GIF DA TARTARUGA --- */
         .area-tartarugas {
             position: relative;
-            height: 300px;
+            /* Definimos uma altura mínima para dar espaço ao GIF e à mensagem */
+            min-height: 250px; 
             margin-bottom: 20px;
+            /* Centraliza o GIF horizontalmente */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Estilo base de cada tartaruga */
-        .tartaruga {
-            position: absolute;
-            width: 60px;
-            height: 40px;
-            background-color: #2e8b57; /* Verde da tartaruga */
-            border-radius: 50% 50% 40% 40%; /* Formato do casco */
-            cursor: pointer; /* Muda o cursor para indicar que é clicável */
-            transition: transform 0.3s ease; /* Efeito suave ao passar o mouse */
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        /* Estilo para que o GIF fique clicável e reaja ao mouse */
+        #tartaruga-click {
+            cursor: pointer; /* Cursor de mãozinha */
+            transition: transform 0.3s ease; /* Efeito suave */
+            /* Se o GIF for muito grande, limitamos a largura (ex: 150px) */
+            max-width: 200px; 
+            height: auto;
         }
 
-        /* Efeito de "levitar" ao passar o mouse na tartaruga */
-        .tartaruga:hover {
-            transform: translateY(-5px) scale(1.05);
+        #tartaruga-click:hover {
+            transform: scale(1.1); /* Aumenta um pouquinho ao passar o mouse */
         }
-
-        /* Adicionando "nadadeiras" com pseudo-elementos */
-        .tartaruga::before, .tartaruga::after {
-            content: '';
-            position: absolute;
-            background-color: #2e8b57;
-            border-radius: 50%;
-        }
-
-        /* Nadadeiras frontais */
-        .tartaruga::before {
-            width: 20px;
-            height: 15px;
-            top: 50%;
-            left: -10px;
-            transform: translateY(-50%);
-        }
-
-        /* Nadadeiras traseiras */
-        .tartaruga::after {
-            width: 15px;
-            height: 10px;
-            bottom: -5px;
-            right: 10px;
-        }
-
-        /* Posicionando 3 tartarugas em locais diferentes */
-        .tartaruga-1 { top: 20%; left: 10%; }
-        .tartaruga-2 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
-        .tartaruga-3 { bottom: 20%; right: 10%; }
-
 
         /* --- ESTILO DA MENSAGEM SURPRESA --- */
 
@@ -134,10 +102,13 @@
         <h1>Para a Dri, meu Xodozinho</h1>
         <p class="instrucao">Dri, meu amor, o mar é calmo e lindo, assim como você. Clique em uma das tartarugas marinhas para descobrir um segredo...</p>
 
-        <div class="area-tartarugas">
-            <div class="tartaruga tartaruga-1" onclick="mostrarMensagem()"></div>
-            <div class="tartaruga tartaruga-2" onclick="mostrarMensagem()"></div>
-            <div class="tartaruga tartaruga-3" onclick="mostrarMensagem()"></div>
+       <div class="area-tartarugas">
+            <img 
+                id="tartaruga-click" 
+                src="tartaruga.gif" 
+                alt="GIF fofo de uma tartaruga marinha nadando"
+                onclick="mostrarMensagem()"
+            >
         </div>
 
         <div id="mensagem-surpresa">
