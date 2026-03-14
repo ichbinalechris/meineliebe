@@ -7,20 +7,20 @@
     <style>
         /* --- ESTILOS CSS (A "Mágica" Visual) --- */
 
-        /* Define o fundo como um mar azul degradê e centraliza o conteúdo */
         body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            /* Um degradê suave para simular a profundidade do mar */
-            background: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden; /* Impede barras de rolagem para manter a cena clean */
-            color: white;
-            text-align: center;
+            /* ... (mantenha as outras linhas: margin, padding, flex, min-height) ... */
+            
+            /* --- CONFIGURANDO A IMAGEM DE FUNDO --- */
+            /* 1. Aponta para o arquivo da sua imagem. AJUSTE O NOME SE NECESSÁRIO! */
+            background-image: url('mar-fundo.jpg'); 
+            /* 2. Garante que a imagem cubra a tela inteira, sem distorcer */
+            background-size: cover;
+            /* 3. Centraliza a imagem na tela */
+            background-position: center;
+            /* 4. Impede que a imagem se repita (como um mosaico) */
+            background-repeat: no-repeat;
+            
+            /* ... (mantenha as outras linhas: font-family, overflow, color, text-align) ... */
         }
 
         /* Container principal para organizar os elementos */
